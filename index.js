@@ -17,8 +17,15 @@ $(function() {
   </li>`);
   });
   $("ul").on("click", ".shopping-item-delete", function(event) {
-    $("li").on("click", function(event) {
-      this.remove();
-    });
+    $(this).closest("li").remove();
+  });
+  $("ul").on("click", ".shopping-item-toggle", function(event) {
+    let span = $(event.currentTarget).closest("li").find(".shopping-item");
+    if (span.hasClass("shopping-item__checked")) {
+      span.removeClass("shopping-item__checked");
+    }
+    else {
+      span.addClass("shopping-item__checked");
+    };
   });
 });
